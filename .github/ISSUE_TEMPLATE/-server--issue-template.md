@@ -1,6 +1,6 @@
 ---
 name: "[Server] Issue Template"
-about: Suggest an idea for this project
+about: "[Server] Issue Title"
 title: ''
 labels: "[BE 팀]"
 assignees: ''
