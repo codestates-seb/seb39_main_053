@@ -1,20 +1,23 @@
-import IntroPage from "./commons/IntroPage";
-import Navbar from "./component/NavigationBar";
+import IntroPage from "../src/component/pages/IntroPage"
+import Navbar from "./component/commons/NavigationBar";
 import "./App.css";
-import Banner from "./component/Banner";
+import AppRouter from "./Router";
+import { useState } from "react";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+
+
+
 
 
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
   return (
-    <div>
-      <header>
-        {/* <IntroPage /> */}
-        {/* <Navbar/> */}
-        <Banner />
-      </header>
-    </div>
-  );
+    <BrowserRouter>
+      <AppRouter isLoggedIn={isLoggedIn}/>
+    </BrowserRouter>   
+  )
 }
 
 export default App;

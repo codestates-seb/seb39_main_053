@@ -1,9 +1,9 @@
 import styled, { createGlobalStyle } from "styled-components";
 import { useState } from "react";
-import Button from "../component/Button";
-import { ReactComponent as BigLogo } from "../assets/big-logo.svg"
-import StyledEarth from "../component/StyledEarth";
-import "../App.css"
+import Button from "../commons/Button";
+import { ReactComponent as BigLogo } from "../../assets/big-logo.svg"
+import StyledEarth from "../commons/StyledEarth";
+import "../../App.css"
 
 
 const Container = styled.div`
@@ -34,9 +34,9 @@ const Intro = () => {
             <BigLogo style={{width:820}}/>
             
             <SmallContainer>
-                <Button fontSize="3.8rem"><StyledEarth />로그인</Button>
-                <Button fontSize="3.8rem"><StyledEarth />회원가입</Button>
-                <Button fontSize="3.8rem"><StyledEarth />손님</Button>
+                <Button hoverWidth= "160%" fontSize="3.8rem"><StyledEarth />로그인</Button>
+                <Button hoverWidth= "160%" fontSize="3.8rem"><StyledEarth />회원가입</Button>
+                <Button hoverWidth= "160%" fontSize="3.8rem"><StyledEarth />손님</Button>
             </SmallContainer>
         </Container>
     )

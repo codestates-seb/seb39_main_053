@@ -1,13 +1,23 @@
 import styled, { createGlobalStyle } from "styled-components";
-import { ReactComponent as Earth } from "../assets/yellow-earth.svg"
+import logoSrc from "../../assets/yellow-earth.svg"
 import Button from "./Button";
 
-const StyledEarth = styled(Earth)`
+const Earth = styled.img`
     display: none;
     position: absolute;
     ${Button}:hover & {
         display: block;
     }
 `
+
+const StyledEarth = () => {
+    return (
+        <>
+            <Earth src= {logoSrc}/>
+        </>
+
+    )
+
+}
 
 export default StyledEarth;

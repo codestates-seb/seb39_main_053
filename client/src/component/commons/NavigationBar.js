@@ -1,14 +1,21 @@
 import styled from "styled-components";
-import { ReactComponent as Navlogo } from "../assets/fa0ea0cdc34fd733.svg"
+import { ReactComponent as Navlogo } from "../../assets/fa0ea0cdc34fd733.svg"
 import Button from "./Button";
 
 const Container = styled.nav`
+    top: 0;
+    position: sticky;
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: #1B6DFF;
     margin: 0;
     padding: 0;
+    /* &:hover {
+        cursor: pointer;
+        color: #FFDE32;
+        width: 100;
+    } */
 `
 
 const Navbar = () => {

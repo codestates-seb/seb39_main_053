@@ -8,10 +8,11 @@ const Button = styled.button`
     background-color:transparent;
     padding: 46px;
     position: relative;
-    width: 160%;
+    /* width: 160%; */
     &:hover {
         cursor: pointer;
         color: #FFDE32;
+        width: ${(props) => props.hoverWidth};
     }
     &:active {
         color: #C8B510;
