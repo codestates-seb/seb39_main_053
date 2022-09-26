@@ -10,6 +10,7 @@ import FilterWriteBar from "./component/commons/FilterWrite";
 import Article from "./component/commons/Article";
 import React from 'react'
 import QuestionList from "./component/pages/questionList/QuestionList";
+import QuestionDetail from "./component/pages/questionDetail/QuestionDetail";
 
 
 
@@ -21,7 +22,8 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<QuestionList />} />
+        
+        <Route path="/" element={<QuestionDetail />} />
         {/* <Route path="/questionList" element={<QuestionList />} />
         <Route path="/questionDetail" element={<QuestionDetail />} />
         <Route path="/questionWrite" element={<QuestionWrite />} />
