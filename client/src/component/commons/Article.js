@@ -1,5 +1,11 @@
 import styled from "styled-components";
-import { ReactComponent as Icon } from "../../assets/유저아이콘.svg";
+import lconSrc from "../../assets/유저아이콘.svg"
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import {useNavigate} from 'react-router-dom';
+import QuestionList from "../pages/questionList/QuestionList";
+import SearchBar from "./SearchBar";
+
 
 
 const Container = styled.div`
@@ -17,25 +23,64 @@ const SmallContainer = styled.div`
     justify-content: space-between;
     height: 110px;
 `
+const Icon = styled.img`
+`
 
-const Article = () => {
+const Article = ({search}) => {
+    // console.log(search)
+
+    const [questions, setQuestions] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+    const [page, setPage] = useState(1);
+    
+
+    const navigate = useNavigate();
+
+    const filterdQuestions = questions.filter( question=> 
+        question.questionBody.toUpperCase().includes(search.toUpperCase()));
+        
+        
+        
+    
+
+    useEffect(() => {
+        axios
+        .get(`http://localhost:5000/posts?_page=${page}&_limit=30&_sort=id&_order=desc`)
+        .then((res) => {
+            setQuestions(res.data);
+        }).then(() => setIsLoading(false))
+    },[page]);
+
+    // const filterdQuestions = questions.filter( question=> {
+        // return question.questionBody.toUpperCase().includes(search.toUpperCase());
+        // console.log(search)
+    // });
+
+    // const filterdQuestions = questions.filter( question=>
+    //     question.questionBody.toUpperCase().includes(search.toUpperCase())
+    //     );
+
     return (
         <>
-            <Container>
-                <Icon />
-                <SmallContainer>
-                    <h2>질문입니다.</h2>
-                    <div>저도 postman에서 계속 로딩만 뜨길래 오타났나 계속 찾다가, 강사님 답변 보고 해결해서 여기에 글 남겨요. /User.js 파일 에서 userSchema.metho...</div>
-                    <div style={{color:"#747474"}}>닉네임 {new Intl.DateTimeFormat("ko", { dateStyle: 'medium', timeStyle: 'medium' }).format(new Date())}</div>
-                </SmallContainer>
-            </Container>
-        
-        
-        </>
+        {filterdQuestions.map((data) => {
+            
+            const {questionId, questionWriter, questionTitle, questionBody, createdAt} = data;
 
-
-    );
-
-};
+        return (
+            <div key={questionId}>
+                <Container>
+                    <Icon src={lconSrc} />
+                    <SmallContainer>
+                        <h2>질문입니다.</h2>
+                        <div>{questionBody}</div>
+                        <div style={{color:"#747474"}}>{questionWriter} {new Intl.DateTimeFormat("ko", { dateStyle: 'medium', timeStyle: 'medium' }).format(new Date())}</div>
+                    </SmallContainer>
+                </Container>
+            </div>
+        );
+    })};
+    </>
+    )
+}
 
 export default Article;

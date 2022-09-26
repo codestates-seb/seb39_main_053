@@ -1,6 +1,9 @@
+import { useState } from "react";
 import styled from "styled-components";
 import { ReactComponent as Search } from "../../assets/Vector.svg"
 import Button from "./Button";  
+
+
 
 const SearchContainer = styled.form`
     display: flex;
@@ -48,15 +51,29 @@ const SmallContainer = styled.div`
     display: flex;
 `
 
-const SearchBar = () => {
+const SearchBar = ({onChange, onSubmit, search}) => {
+    // const [search, setSearch] = useState("");
+    // const onChange = (e) => {
+    //     setSearch(e.target.value)
+    //     console.log(search);
+    // }
+    // const onSubmit = (e) => {
+    //     e.preventDefault();
+    //     setSearch("");
+    //     console.log(search);
+    // }
+
+
+    // console.log(search);
     return (
-        <SmallContainer>
-            <SearchContainer>
+        <SmallContainer > 
+            <SearchContainer onSubmit={onSubmit}>
                 <Search />
-                <SearchInput />
+                <SearchInput type="text" value={search} onChange={onChange}/>
             </SearchContainer>
-            <Button basicColor="black" style={{padding: "7px"}}>검색</Button>        
+            <Button type="submit" basicColor="black" style={{padding: "7px"}}>검색</Button>      
         </SmallContainer>
+        
     )
 }
 
