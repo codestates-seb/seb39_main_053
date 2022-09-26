@@ -1,4 +1,5 @@
 import IntroPage from "../src/component/pages/IntroPage"
+import BoardList from "./component/pages/board/BoardList";
 import Navbar from "./component/commons/NavigationBar";
 import "./App.css";
 import AppRouter from "./Router";
@@ -14,9 +15,10 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   return (
-    <BrowserRouter>
-      <AppRouter isLoggedIn={isLoggedIn}/>
-    </BrowserRouter>   
+    <>
+    {/* <IntroPage/> */}
+    <BoardList/>
+    </>   
   )
 }
 
