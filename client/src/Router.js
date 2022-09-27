@@ -5,23 +5,24 @@ import Home from "./component/routes/Home";
 
 const AppRouter = ({ isLoggedIn }) => {
     return (                   
-        <>
-            
+        
+            <Routes>
                 {isLoggedIn ? (
-                        <Routes>         
-                        <Route path="/" element={<Home />}>
-                    
-                        </Route>    
-                        </Routes>
+                    <>                    
+                        <Route path="/" element={<Home/>}/>
+                        <Route path="/:id" element={<Home/>}/>
+                    </>
                 ) : (
-                    <Routes>
-                    <Route path="/" element={<Auth />}>
-                        
-                    </Route>
-                    </Routes>
+                    
+                    <>
+                        <Route path="/auth" element={<Auth/>}/>
+                        <Route path="/:id" element={<Home/>}/>
+                    </>
+                
                 )}
             
-        </>
+            </Routes>
+        
         
     );
 };
