@@ -22,9 +22,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .env
-<<<<<<< HEAD
 
 db.json
-=======
-data.json
->>>>>>> ae7ebbd55d009d5605e3b3a6831fcfc9e6d46240
+
+

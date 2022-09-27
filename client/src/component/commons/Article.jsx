@@ -7,16 +7,17 @@ const Container = styled.div`
     display: flex;
     width: 897px;
     height: 220px;
-    justify-content: space-between;
     align-items: center;
     /* padding: 25px; */
 `
 const SmallContainer = styled.div`
     display: flex;
+    flex-grow: 1;
     flex-direction: column;
     justify-content: space-between;
     height: 110px;
 `
+
 
 const Article = () => {
     return (

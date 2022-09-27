@@ -19,11 +19,11 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   return (
-    <>
-<<<<<<< HEAD
+  <>
+
     {/* <IntroPage/> */}
     <BoardList/>
-=======
+
       <Routes>
         {/* <Route path="/" element={<QuestionList />} /> */}
         {/* <Route path="/questionList" element={<QuestionList />} />
@@ -34,9 +34,13 @@ function App() {
         <Route path="/boardDetail" element={<BoardDetail />} />
         <Route path="/boardWrite" element={<BoardWrite />} /> */}
       </Routes>
->>>>>>> ae7ebbd55d009d5605e3b3a6831fcfc9e6d46240
-    </>   
+
+  </>   
+
+
   )
+ 
+  
 }
 
 export default App;
