@@ -1,7 +1,5 @@
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import { ReactComponent as Penlogo } from "../../assets/ep_edit-pen.svg";
-import Button from "./YellowButton";
 import { ReactComponent as Penlogo } from "../../assets/penIcon.svg";
 import RedButton from "./RedButton";
 
