@@ -24,3 +24,8 @@ yarn-error.log*
 .env
 
 db.json
+<<<<<<< HEAD
+
+
+=======
+>>>>>>> 0a0593d28ffd01e5d80fdad215652271ff57ca09

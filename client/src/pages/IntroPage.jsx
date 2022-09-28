@@ -5,6 +5,7 @@ import { ReactComponent as BigLogo } from "../assets/bigLogo.svg"
 import StyledEarth from "../component/commons/StyledEarth";
 import "../App.css"
 
+
 const Intro = () => {
     const [visible, setVisible] = useState(false);
     
