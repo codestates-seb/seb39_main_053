@@ -1,19 +1,5 @@
 import styled from "styled-components";
 
-const Container = styled.div`
-    display: flex;
-    flex-direction: column;
-    background-color: #1B6DFF;
-    width: 315px;
-    height: 410px;
-    border-radius: 30px;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    color: #FFDE32;
-    line-height: 1.75;
-`
-
 const Banner = () => {
     return (
         <>
@@ -33,3 +19,17 @@ const Banner = () => {
 }
 
 export default Banner;
+
+const Container = styled.div`
+    display: flex;
+    flex-direction: column;
+    background-color: #1B6DFF;
+    width: 315px;
+    height: 410px;
+    border-radius: 30px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    color: #FFDE32;
+    line-height: 1.75;
+`

@@ -1,5 +1,17 @@
 import styled from "styled-components";
 
+const Input = () => {
+    return (
+        <>
+            <InputBox>
+                <SearchInput />
+            </InputBox>
+        </>
+    )
+}
+
+export default Input;
+
 const InputBox = styled.form`
 `
 const SearchInput = styled.input`
@@ -17,15 +29,3 @@ const SearchInput = styled.input`
         
     }
 `
-
-const Input = () => {
-    return (
-        <>
-            <InputBox>
-                <SearchInput />
-            </InputBox>
-        </>
-    )
-}
-
-export default Input;
