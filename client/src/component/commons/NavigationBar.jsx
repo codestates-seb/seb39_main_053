@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { ReactComponent as Navlogo } from "../../assets/navLogo.svg"
 import Button from "./YellowButton";
-import { useState } from "react";
 
 const Navbar = () => {
     return (
