@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { ReactComponent as Navlogo } from "../../assets/navLogo.svg"
 import Button from "./YellowButton";
 
+
 const Navbar = () => {
     return (
         <>
@@ -23,6 +24,7 @@ const Navbar = () => {
 
 export default Navbar;
 
+
 const Container = styled.nav`
     top: 0;
     position: sticky;
@@ -32,7 +34,7 @@ const Container = styled.nav`
     background-color: #1B6DFF;
     margin: 0;
     padding: 0;
-    z-index: 1;
+    height: 74px;
     /* &:hover {
         cursor: pointer;
         color: #FFDE32;
