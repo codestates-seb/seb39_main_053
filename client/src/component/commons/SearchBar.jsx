@@ -1,11 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
-<<<<<<< HEAD:client/src/component/commons/SearchBar.jsx
-import { ReactComponent as Search } from "../../assets/Vector.svg"
-import Button from "./YellowButton";  
-=======
 import { ReactComponent as Search } from "../../assets/searchIcon.svg"
-import Button from "./YellowButton";  
+import Button from "./YellowButton"; 
 
 const SearchBar = ({onChange, onSubmit, search}) => {
     return (
@@ -21,7 +17,7 @@ const SearchBar = ({onChange, onSubmit, search}) => {
 }
 
 export default SearchBar;
->>>>>>> 0a0593d28ffd01e5d80fdad215652271ff57ca09:client/src/component/commons/SearchBar.js
+
 
 const SearchContainer = styled.form`
     display: flex;

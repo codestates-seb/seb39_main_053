@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { ReactComponent as Navlogo } from "../../assets/fa0ea0cdc34fd733.svg"
+import { ReactComponent as Navlogo } from "../../assets/navLogo.svg"
 import Button from "./YellowButton";
 
 const Container = styled.nav`
