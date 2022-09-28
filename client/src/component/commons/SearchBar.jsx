@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { ReactComponent as Search } from "../../assets/Vector.svg"
-import Button from "./Button";  
+import Button from "./YellowButton";  
 
 const SearchContainer = styled.form`
     display: flex;

@@ -1,11 +1,10 @@
 import styled from "styled-components";
 import { ReactComponent as Penlogo } from "../../assets/ep_edit-pen.svg";
-import Button from "./Button";
+import Button from "./YellowButton";
 
 const Container = styled.div`
     border-bottom: 2px solid #1B6DFF;
     display: flex;
-    width: 897px;
     height: 59px;
     justify-content: space-between;
     align-items: center;
@@ -20,7 +19,7 @@ const RealSmall = styled.div`
 display: flex;
 `
 
-const FilterWriteBar = () => {
+const FilterWriteBar = ({onClick}) => {
     return (
         <>
             <Container>
@@ -30,7 +29,7 @@ const FilterWriteBar = () => {
                 </SmallContainer>
                 <RealSmall>
                     <Penlogo/>
-                    <Button style={{padding: "7px"}}>글쓰기</Button>
+                    <Button onClick = {onClick} style={{padding: "7px"}}>글쓰기</Button>
                 </RealSmall>
             </Container>
         

@@ -1,6 +1,6 @@
 import styled, { createGlobalStyle } from "styled-components";
 import logoSrc from "../../assets/yellow-earth.svg"
-import Button from "./Button";
+import Button from "./YellowButton";
 
 const Earth = styled.img`
     display: none;
