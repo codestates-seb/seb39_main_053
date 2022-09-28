@@ -5,27 +5,33 @@ import Button from "../../commons/Button";
 import IconSrc from "../../../assets/quesiton.svg"
 import AskIconSrc from "../../../assets/ask.png"
 import LogoIconSrc from "../../../assets/메인프로젝트로고남색 2.svg"
+import Comment from "./Comment";
 
 const QuestionDetail = () => {
     const [text, setText] = useState("");
     const onChange = (e) => {
         setText(e.target.value)
     }
+    const [textArray, setTextArray] = useState([]);
     const onSubmit = (e) => {
         e.preventDefault();
         setText("");
     }
+    const handleButtonClick = (e) => {
+        const comment = {
+            id: textArray.length + 1,
+            content: text,
+            createdAt : new Date().toLocaleDateString('ko-kr'),
+            updatedAt : new Date().toLocaleDateString('ko-kr'),
+        };
+        const newComments = [comment, ...textArray];
+        setTextArray(newComments);
+    };
+    
 
     return (
         <>
             <Navbar />
-            {/* <>
-                제목
-                <>
-                닉네임 날짜 / 질문수정 버튼
-                </>
-            </>
-            질문내용? */}
             <Container>
                 <TitleContainer>
                     <div style={{width:"750px"}}>
@@ -39,16 +45,27 @@ const QuestionDetail = () => {
 
                 <CommentContainer>
                     <AskContainer>
-                        <Icon src={AskIconSrc} /> 총 0개의 답변이 달렸습니다
+                        <Icon src={AskIconSrc} /> 총 {textArray.length}개의 답변이 달렸습니다
                     </AskContainer>
-                    <CommentBobyContainer>
-                        <Icon src={LogoIconSrc} />
-                        <div>
-                            <span>닉네임님, 답변해주세요!</span>
-                            <span>모두에게 도움이 되는 답변의 주인공이 되어주세요!</span>
-                        </div>
+                    <CommentBobyContainer onSubmit={onSubmit}>
+                        <CommentTitleContainer>
+                            <Icon src={LogoIconSrc}/>
+                            <div style={{paddingTop: "26px"}}>
+                                <span>닉네임님, 답변해주세요!</span><br />
+                                <span>모두에게 도움이 되는 답변의 주인공이 되어주세요!</span>
+                                
+                            </div>
+                        </CommentTitleContainer>
+                            <InputBox type="text" value={text} onChange={onChange}>
+                                
+                            </InputBox>
+                        <Button type="submit" basicColor="black" style={{padding:"2px"}} onClick={handleButtonClick}>댓글 등록</Button>
+                        {/*https://www.inflearn.com/questions/146287*/}
                     </CommentBobyContainer>
                 </CommentContainer>
+                {textArray.map((comment, idx) => {
+                    return <Comment comment={comment} key={comment.id} />
+                })}
             </Container>
             
         </>
@@ -105,17 +122,24 @@ const CommentContainer = styled.div`
     margin-top: 4px;
     color: #828282;
 `
-const CommentBobyContainer = styled.div`
-background-color: white;
-border: none;
-border-radius: 7px;
-width: 798px;
-height: 464px;
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-/* margin-top: 76px; */
+const CommentTitleContainer = styled.div`
+    display: flex;
+    margin-top: 20px;
+    margin-left: 18px;
+`
+const CommentBobyContainer = styled.form`
+    position: relative;
+    background-color: white;
+    border: none;
+    border-radius: 7px;
+    width: 798px;
+    height: 464px;
+    display: flex;
+    /* justify-content: flex-start; */
+    align-items: flex-start;
+    flex-direction: column;
+    /* margin-top: 76px; */
+    /* padding: 20px; */
 `
 const AskContainer = styled.div`
     justify-content: flex-start;
@@ -124,4 +148,19 @@ const AskContainer = styled.div`
     padding-bottom: 10px;
     padding-left: 20px;
     width: 798px;
+`
+const InputBox = styled.input.attrs({
+    type: "text",
+    required: true,
+    placeholder: ""
+})`
+    /* position: absolute; */
+    vertical-align: top;
+    border: none;
+    height: 398px;
+    width: 798px;
+    border-radius: 7px;
+    z-index: 0.9;
+    outline: none;
+    padding-left: 5px;
 `

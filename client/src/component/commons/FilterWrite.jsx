@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { ReactComponent as Penlogo } from "../../assets/ep_edit-pen.svg";
 import Button from "./Button";
@@ -21,6 +22,8 @@ display: flex;
 `
 
 const FilterWriteBar = () => {
+    const navigate = useNavigate();
+    
     return (
         <>
             <Container>
@@ -30,7 +33,7 @@ const FilterWriteBar = () => {
                 </SmallContainer>
                 <RealSmall>
                     <Penlogo/>
-                    <Button style={{padding: "7px"}}>글쓰기</Button>
+                    <Button style={{padding: "7px"}} onClick={() => {navigate(`/write`)}}>글쓰기</Button>
                 </RealSmall>
             </Container>
         

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Article from "../../commons/Article";
+import Article from "./Article";
 import FilterWriteBar from "../../commons/FilterWrite";
 import Navbar from "../../commons/NavigationBar";
 import SearchBar from "../../commons/SearchBar";

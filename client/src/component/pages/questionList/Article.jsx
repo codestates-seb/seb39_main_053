@@ -1,11 +1,10 @@
 import styled from "styled-components";
-import lconSrc from "../../assets/유저아이콘.svg"
+import lconSrc from "../../../assets/유저아이콘.svg"
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import {useNavigate} from 'react-router-dom';
-import QuestionList from "../pages/questionList/QuestionList";
-import SearchBar from "./SearchBar";
-
+import QuestionList from "./QuestionList";
+import SearchBar from "../../commons/SearchBar";
 
 
 const Container = styled.div`
@@ -45,7 +44,7 @@ const Article = ({search}) => {
 
     useEffect(() => {
         axios
-        .get(`http://localhost:5000/posts?_page=${page}&_limit=30&_sort=id&_order=desc`)
+        .get(`http://localhost:5000/questions?_page=${page}&_limit=30&_sort=id&_order=desc`)
         .then((res) => {
             setQuestions(res.data);
         }).then(() => setIsLoading(false))
@@ -72,7 +71,8 @@ const Article = ({search}) => {
                     <Icon src={lconSrc} />
                     <SmallContainer>
                         <h2>질문입니다.</h2>
-                        <div>{questionBody}</div>
+                        <div onClick={() => {navigate(`/detail`)}}>{questionBody}</div>
+                        {/* <div onClick={() => {navigate(`/detail/${questionId}`)}}>{questionBody}</div> */}
                         <div style={{color:"#747474"}}>{questionWriter} {new Intl.DateTimeFormat("ko", { dateStyle: 'medium', timeStyle: 'medium' }).format(new Date())}</div>
                     </SmallContainer>
                 </Container>
