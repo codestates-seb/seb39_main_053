@@ -1,9 +1,22 @@
 import { useState } from "react";
 import styled from "styled-components";
-import { ReactComponent as Search } from "../../assets/Vector.svg"
-import Button from "./Button";  
+import { ReactComponent as Search } from "../../assets/searchIcon.svg"
+import Button from "./YellowButton";  
 
+const SearchBar = ({onChange, onSubmit, search}) => {
+    return (
+        <SmallContainer > 
+            <SearchContainer onSubmit={onSubmit}>
+                <Search />
+                <SearchInput type="text" value={search} onChange={onChange}/>
+            </SearchContainer>
+            <Button type="submit" basicColor="black" style={{padding: "7px"}}>검색</Button>      
+        </SmallContainer>
+        
+    )
+}
 
+export default SearchBar;
 
 const SearchContainer = styled.form`
     display: flex;
@@ -50,32 +63,3 @@ const SearchInput = styled.input.attrs({
 const SmallContainer = styled.div`
     display: flex;
 `
-
-const SearchBar = ({onChange, onSubmit, search}) => {
-    // const [search, setSearch] = useState("");
-    // const onChange = (e) => {
-    //     setSearch(e.target.value)
-    //     console.log(search);
-    // }
-    // const onSubmit = (e) => {
-    //     e.preventDefault();
-    //     setSearch("");
-    //     console.log(search);
-    // }
-
-
-    // console.log(search);
-    return (
-        <SmallContainer > 
-            <SearchContainer onSubmit={onSubmit}>
-                <Search />
-                <SearchInput type="text" value={search} onChange={onChange}/>
-            </SearchContainer>
-            <Button type="submit" basicColor="black" style={{padding: "7px"}}>검색</Button>      
-        </SmallContainer>
-        
-    )
-}
-
-export default SearchBar;
-

@@ -1,18 +1,14 @@
 import styled from "styled-components";
 import Article from "./Article";
-import FilterWriteBar from "../../commons/FilterWrite";
-import Navbar from "../../commons/NavigationBar";
-import SearchBar from "../../commons/SearchBar";
+import FilterWriteBar from "../../../component/commons/FilterWrite";
+import Navbar from "../../../component/commons/NavigationBar";
+import SearchBar from "../../../component/commons/SearchBar";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-const SmallContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-`
 
 const QuestionList = () => {
+    const navigate = useNavigate();
     const [search, setSearch] = useState("");
     const onChange = (e) => {
         setSearch(e.target.value)
@@ -30,7 +26,7 @@ const QuestionList = () => {
             
             <SmallContainer>
                 <SearchBar search={search} setSearch={setSearch} onChange={onChange} onSubmit={onSubmit}/>
-                <FilterWriteBar />
+                <FilterWriteBar onClick={() => {navigate(`/write`)}}/>
                 
                 <Article search={search}/>
             </SmallContainer>
@@ -39,3 +35,10 @@ const QuestionList = () => {
 };
 
 export default QuestionList;
+
+const SmallContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+`

@@ -1,7 +1,28 @@
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import { ReactComponent as Penlogo } from "../../assets/ep_edit-pen.svg";
-import Button from "./Button";
+import { ReactComponent as Penlogo } from "../../assets/penIcon.svg";
+import RedButton from "./RedButton";
+
+const FilterWriteBar = ({onClick}) => {
+    const navigate = useNavigate();
+    
+    return (
+        <>
+            <Container>
+                <SmallContainer>
+                    <h3 style={{fontSize:"14px", color: "red"}}>● 최신순</h3>
+                    <h3 style={{fontSize:"14px"}}>● 오래된순</h3>
+                </SmallContainer>
+                <RealSmall>
+                    <Penlogo/>
+                    <RedButton style={{padding: "7px"}} onClick={onClick}>글쓰기</RedButton>
+                </RealSmall>
+            </Container>
+        </>
+    );
+};
+
+export default FilterWriteBar;
 
 const Container = styled.div`
     border-bottom: 2px solid #1B6DFF;
@@ -20,29 +41,3 @@ const SmallContainer = styled.div`
 const RealSmall = styled.div`
 display: flex;
 `
-
-const FilterWriteBar = () => {
-    const navigate = useNavigate();
-    
-    return (
-        <>
-            <Container>
-                <SmallContainer>
-                    <h3 style={{fontSize:"14px", color: "red"}}>● 최신순</h3>
-                    <h3 style={{fontSize:"14px"}}>● 오래된순</h3>
-                </SmallContainer>
-                <RealSmall>
-                    <Penlogo/>
-                    <Button style={{padding: "7px"}} onClick={() => {navigate(`/write`)}}>글쓰기</Button>
-                </RealSmall>
-            </Container>
-        
-        
-        </>
-
-
-    );
-
-};
-
-export default FilterWriteBar;

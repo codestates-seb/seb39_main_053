@@ -1,29 +1,12 @@
 import styled from "styled-components";
-import lconSrc from "../../../assets/유저아이콘.svg"
+import lconSrc from "../../../assets/userIcon.svg"
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import {useNavigate} from 'react-router-dom';
 import QuestionList from "./QuestionList";
-import SearchBar from "../../commons/SearchBar";
+import SearchBar from "../../../component/commons/SearchBar";
 
 
-const Container = styled.div`
-    border-bottom: 2px solid #1B6DFF;
-    display: flex;
-    width: 897px;
-    height: 220px;
-    justify-content: space-between;
-    align-items: center;
-    /* padding: 25px; */
-`
-const SmallContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 110px;
-`
-const Icon = styled.img`
-`
 
 const Article = ({search}) => {
     // console.log(search)
@@ -38,26 +21,16 @@ const Article = ({search}) => {
     const filterdQuestions = questions.filter( question=> 
         question.questionBody.toUpperCase().includes(search.toUpperCase()));
         
-        
-        
-    
 
     useEffect(() => {
         axios
         .get(`http://localhost:5000/questions?_page=${page}&_limit=30&_sort=id&_order=desc`)
         .then((res) => {
             setQuestions(res.data);
+            // console.log(res.data);
         }).then(() => setIsLoading(false))
     },[page]);
-
-    // const filterdQuestions = questions.filter( question=> {
-        // return question.questionBody.toUpperCase().includes(search.toUpperCase());
-        // console.log(search)
-    // });
-
-    // const filterdQuestions = questions.filter( question=>
-    //     question.questionBody.toUpperCase().includes(search.toUpperCase())
-    //     );
+    
 
     return (
         <>
@@ -84,3 +57,21 @@ const Article = ({search}) => {
 }
 
 export default Article;
+
+const Container = styled.div`
+    border-bottom: 2px solid #1B6DFF;
+    display: flex;
+    width: 897px;
+    height: 220px;
+    justify-content: space-between;
+    align-items: center;
+    /* padding: 25px; */
+`
+const SmallContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 110px;
+`
+const Icon = styled.img`
+`

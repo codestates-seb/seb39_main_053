@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Comment = ({ comment }) => {
+    // console.log(comment);
     const parsedDate = new Date(comment.createdAt).toLocaleDateString('ko-kr');
 
     return (
@@ -15,7 +16,7 @@ const Comment = ({ comment }) => {
                 >     
                 Delete</button> */}
                 
-                {comment.content}
+                {comment.questionBody}
             </Container>
         </li>
     );

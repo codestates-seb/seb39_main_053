@@ -1,24 +1,7 @@
 import styled from "styled-components";
-import { ReactComponent as Navlogo } from "../../assets/fa0ea0cdc34fd733.svg"
-import Button from "./Button";
+import { ReactComponent as Navlogo } from "../../assets/navLogo.svg"
+import Button from "./YellowButton";
 import { useState } from "react";
-
-const Container = styled.nav`
-    top: 0;
-    position: sticky;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #1B6DFF;
-    margin: 0;
-    padding: 0;
-    z-index: 1;
-    /* &:hover {
-        cursor: pointer;
-        color: #FFDE32;
-        width: 100;
-    } */
-`
 
 const Navbar = () => {
     return (
@@ -40,3 +23,20 @@ const Navbar = () => {
 }
 
 export default Navbar;
+
+const Container = styled.nav`
+    top: 0;
+    position: sticky;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1B6DFF;
+    margin: 0;
+    padding: 0;
+    z-index: 1;
+    /* &:hover {
+        cursor: pointer;
+        color: #FFDE32;
+        width: 100;
+    } */
+`

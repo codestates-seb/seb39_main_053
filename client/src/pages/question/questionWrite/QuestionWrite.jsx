@@ -1,41 +1,63 @@
 import styled from "styled-components";
-import FilterWriteBar from "../../commons/FilterWrite";
-import Navbar from "../../commons/NavigationBar";
-import SearchBar from "../../commons/SearchBar";
+import FilterWriteBar from "../../../component/commons/FilterWrite";
+import Navbar from "../../../component/commons/NavigationBar";
+import SearchBar from "../../../component/commons/SearchBar";
 import { useState } from "react";
-import Input from "../../commons/Input";
+import Input from "../../../component/commons/Input";
+import Button from "../../../component/commons/YellowButton";
+
 
 
 const QuestionWrite = () => {
-    const [search, setSearch] = useState("");
-    const onChange = (e) => {
-        setSearch(e.target.value)
-        // console.log(search);
+    // 로그인 기능 구현이후에 로그인 한 해당 유저의 닉네임으로 넣을 예정
+    const [username, setUser] = useState("아이유");
+
+
+    const [qustionTitle, setQustionTitle] = useState("");
+    const [qustionBody, setQustionBody] = useState("");
+    const handleChangeTitle = (e) => {
+        setQustionTitle(e.target.value)
     }
-    const onSubmit = (e) => {
+    const handleChangeBody = (e) => {
+        setQustionBody(e.target.value)
+    }
+    const onSubmit = (e) => {           
         e.preventDefault();
-        setSearch("");
-        // console.log(search);
+        setQustionTitle("");
+        setQustionBody("");
     }
+    // const handleButtonClick = (e) => {
+    //     const comment = {
+    //         id: textArray.length + 1,
+    //         content: text,
+    //         createdAt : new Date().toLocaleDateString('ko-kr'),
+    //         updatedAt : new Date().toLocaleDateString('ko-kr'),
+    //     };
+    //     const newComments = [comment, ...textArray];
+    //     setTextArray(newComments);
+    // };
 
     return (
         <>
             <Navbar />
             
-            <SmallContainer>
-                <TitleInput />
+            <SmallContainer onSubmit={onSubmit}>
+                <TitleInput type="text" value={qustionTitle} onChange={handleChangeTitle}/>
 
                 <BodyStyle />
-                <BodyInput />
-                
-            </SmallContainer>
+                <BodyInput type="text" value={qustionBody} onChange={handleChangeBody} />
+                <ButtonContainer>
+                    <Button>취소</Button>
+                    <Button>등록</Button>
+                </ButtonContainer>
+            </SmallContainer >
         </>
     );
 };
 
 export default QuestionWrite;
 
-const SmallContainer = styled.div`
+const SmallContainer = styled.form`
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -55,6 +77,7 @@ const TitleInput = styled.input.attrs({
     z-index: 0.9;
     outline: none;
     padding-left: 18px;
+    margin-bottom: 10px;
     &:hover{  
         background-color: #D4E3FF;
         cursor: pointer;
@@ -101,4 +124,10 @@ const BodyInput = styled.textarea.attrs({
     } ::placeholder {
     font-size: 1.1em;
 }   
+`
+const ButtonContainer = styled.div`
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 812px;
 `

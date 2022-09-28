@@ -1,25 +1,13 @@
-import IntroPage from "../src/component/pages/IntroPage"
-import Navbar from "./component/commons/NavigationBar";
+import IntroPage from "./pages/IntroPage"
 import "./App.css";
 import { useState } from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
-import SearchBar from "./component/commons/SearchBar";
-import Input from "./component/commons/Input";
-import FilterWriteBar from "./component/commons/FilterWrite";
-import Article from "./component/pages/questionList/Article";
 import React from 'react'
-import QuestionList from "./component/pages/questionList/QuestionList";
-import QuestionDetail from "./component/pages/questionDetail/QuestionDetail";
-import QuestionWrite from "./component/pages/questionWrite/QuestionWrite";
-
-
-
-
-
+import QuestionList from "./pages/question/questionList/QuestionList";
+import QuestionDetail from "./pages/question/questionDetail/QuestionDetail";
+import QuestionWrite from "./pages/question/questionWrite/QuestionWrite";
 
 function App() {
-  
-
   return (
     <>
       <Routes>

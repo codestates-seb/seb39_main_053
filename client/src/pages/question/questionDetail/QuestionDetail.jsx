@@ -1,11 +1,13 @@
 import styled from "styled-components";
-import Navbar from "../../commons/NavigationBar";
-import { useState } from "react";
-import Button from "../../commons/Button";
-import IconSrc from "../../../assets/quesiton.svg"
-import AskIconSrc from "../../../assets/ask.png"
-import LogoIconSrc from "../../../assets/메인프로젝트로고남색 2.svg"
+import Navbar from "../../../component/commons/NavigationBar";
+import { useEffect, useState } from "react";
+import Button from "../../../component/commons/YellowButton";
+import IconSrc from "../../../assets/quesitonIcon.svg"
+import AskIconSrc from "../../../assets/askIcon.png"
+import LogoIconSrc from "../../../assets/smallLogo.svg"
 import Comment from "./Comment";
+import axios from "axios";
+import { useParams } from "react-router-dom";
 
 const QuestionDetail = () => {
     const [text, setText] = useState("");
@@ -27,6 +29,25 @@ const QuestionDetail = () => {
         const newComments = [comment, ...textArray];
         setTextArray(newComments);
     };
+
+    useEffect(() => {
+        axios
+        .get(`http://localhost:5000/answers`)
+        .then((res) => {
+            setTextArray(res.data);
+            console.log(res.data[0].questionBody);       
+        })
+        .catch(err => console.log(err));
+    }, []);
+
+    const handleAnswerSubmit = async () => {
+        try {
+            const result = await axios.post(`http://localhost:5000/answers`)
+            // console.log(data) 
+        } catch(e) {
+            console.log(e)
+        }
+    }
     
 
     return (
@@ -59,7 +80,7 @@ const QuestionDetail = () => {
                             <InputBox type="text" value={text} onChange={onChange}>
                                 
                             </InputBox>
-                        <Button type="submit" basicColor="black" style={{padding:"2px"}} onClick={handleButtonClick}>댓글 등록</Button>
+                        <Button type="submit" basicColor="black" style={{padding:"2px"}} onClick={handleAnswerSubmit}>댓글 등록</Button>
                         {/*https://www.inflearn.com/questions/146287*/}
                     </CommentBobyContainer>
                 </CommentContainer>
