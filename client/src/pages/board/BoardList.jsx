@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import Navbar from '../../component/commons/NavigationBar';
 import styled from "styled-components";
-import { ReactComponent as Icon } from "../../assets/유저아이콘.svg";
+import { ReactComponent as Icon } from "../../assets/userIcon.svg";
 import FilterWriteBar from '../../component/commons/FilterWrite';
 import HoverModal from '../../component/commons/HoverModal';
 import { boardMore } from '../../component/commons/modalText';
@@ -15,6 +15,16 @@ import { useNavigate } from 'react-router-dom';
 function BoardList() {
     const [boardList, setBoardList] = useState([]);
     const navigate = useNavigate();
+    const [search, setSearch] = useState("");
+    const onChange = (e) => {
+      setSearch(e.target.value)
+      // console.log(search);
+    }
+    const onSubmit = (e) => {
+      e.preventDefault();
+      setSearch("");
+      // console.log(search);
+    }
 
     useEffect(() => {
       axios
@@ -33,7 +43,7 @@ function BoardList() {
         <HoverModal text={boardMore}/>
         </SideContainer>
         <SearchContainer>
-          <SearchBar/>
+          <SearchBar search={search} setSearch={setSearch} onChange={onChange} onSubmit={onSubmit}/>
         </SearchContainer>
         <FilterWriteBar onClick = {() => {navigate("/boardWrite")}}/>
         {boardList.map((e) => {
@@ -42,8 +52,8 @@ function BoardList() {
           return <div key={id}>
             <Container>
               <IconContainer><Icon /></IconContainer>
-              <SmallContainer>
-                  <h2>{board_title}</h2>
+              <SmallContainer>                 
+                  <h2 onClick={() => navigate(`/boardDetail/${id}`)}>{board_title}</h2>                 
                   <div>{board_body}</div>
                   <UserAndDate>{board_nickname}</UserAndDate>
               </SmallContainer>  
