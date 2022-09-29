@@ -1,7 +1,12 @@
 package com.cogether.server.reply.dto;
 
+<<<<<<< Updated upstream
 import com.cogether.server.member.entity.Member;
 import com.cogether.server.board.entity.Board;
+=======
+//import com.cogether.server.member.entity.Member;
+//import com.cogether.server.board.entity.Board;
+>>>>>>> Stashed changes
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -44,7 +49,11 @@ public class ReplyDto {
         private long replyId;
         private String content;
         private LocalDateTime date;
+<<<<<<< Updated upstream
         private long votes;
         private Member member;
+=======
+        //private Member member;
+>>>>>>> Stashed changes
     }
 }

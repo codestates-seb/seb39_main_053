@@ -2,8 +2,13 @@ package com.cogether.server.reply.controller;
 
 import com.cogether.server.dto.MultiResponseDto;
 import com.cogether.server.dto.SingleResponseDto;
+<<<<<<< Updated upstream
 import com.cogether.server.member.entity.Member;
 import com.cogether.server.member.service.MemberService;
+=======
+//import com.cogether.server.member.entity.Member;
+//import com.cogether.server.member.service.MemberService;
+>>>>>>> Stashed changes
 import com.cogether.server.board.entity.Board;
 import com.cogether.server.reply.dto.ReplyDto;
 import com.cogether.server.reply.entity.Reply;
@@ -27,16 +32,26 @@ import java.util.List;
 public class ReplyController {
     private final ReplyService replyService;
     private final ReplyMapper mapper;
+<<<<<<< Updated upstream
     private final MemberService memberService;
+=======
+    //private final MemberService memberService;
+>>>>>>> Stashed changes
     private final com.cogether.server.board.service.BoardService boardService;
 
     public ReplyController(ReplyService replyService,
                            ReplyMapper mapper,
+<<<<<<< Updated upstream
                            MemberService memberService,
                            com.cogether.server.board.service.BoardService boardService) {
         this.replyService = replyService;
         this.mapper = mapper;
         this.memberService = memberService;
+=======
+                           com.cogether.server.board.service.BoardService boardService) {
+        this.replyService = replyService;
+        this.mapper = mapper;
+>>>>>>> Stashed changes
         this.boardService = boardService;
     }
 
@@ -59,8 +74,13 @@ public class ReplyController {
     public ResponseEntity postReply(@Valid @RequestBody ReplyDto.Post replyPost){
         Reply reply = mapper.replyPostToReply(replyPost);
 
+<<<<<<< Updated upstream
         Member member = memberService.findMember(replyPost.getUsername());
         reply.setMember(member);
+=======
+        //Member member = memberService.findMember(replyPost.getUsername());
+        //reply.setMember(member);
+>>>>>>> Stashed changes
 
         Board board = boardService.findBoard(replyPost.getBoardId());
         reply.setBoard(board);

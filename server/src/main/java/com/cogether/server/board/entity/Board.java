@@ -1,6 +1,10 @@
 package com.cogether.server.board.entity;
 
+<<<<<<< Updated upstream
 import com.cogether.server.member.entity.Member;
+=======
+//import com.cogether.server.member.entity.Member;
+>>>>>>> Stashed changes
 import com.cogether.server.reply.entity.Reply;
 import lombok.*;
 
@@ -27,6 +31,7 @@ public class Board {
     @Column(nullable = false)
     private LocalDateTime date = LocalDateTime.now();
 
+<<<<<<< Updated upstream
     @Column(nullable = false)
     private long votes;
 
@@ -39,15 +44,32 @@ public class Board {
     @ManyToOne
     @JoinColumn(name="MEMBER_ID")
     private Member members;
+=======
+
+    //@OneToOne
+    //@JoinColumn(name="MEMBER_ID")
+    //private Member member;
+
+
+    //@ManyToOne
+    //@JoinColumn(name="MEMBER_ID")
+    //private Member members;
+>>>>>>> Stashed changes
 
 
 
     @OneToMany(mappedBy = "board", cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
     private List<Reply> replies = new ArrayList<>();
 
+<<<<<<< Updated upstream
     public void setMember(Member member){
         this.member = member;
     }
+=======
+    //public void setMember(Member member){
+        //this.member = member;
+    //}
+>>>>>>> Stashed changes
 
     public void setReply(Reply reply){
         replies.add(reply);
@@ -55,10 +77,17 @@ public class Board {
             reply.setBoard(this);
     }
 
+<<<<<<< Updated upstream
     public Board(Long boardId, String title, String content, int votes){
         this.boardId = boardId;
         this.title = title;
         this.content = content;
         this.votes = votes;
+=======
+    public Board(Long boardId, String title, String content){
+        this.boardId = boardId;
+        this.title = title;
+        this.content = content;
+>>>>>>> Stashed changes
     }
 }

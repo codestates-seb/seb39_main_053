@@ -1,6 +1,10 @@
 package com.cogether.server.board.dto;
 
+<<<<<<< Updated upstream
 import com.cogether.server.member.entity.Member;
+=======
+//import com.cogether.server.member.entity.Member;
+>>>>>>> Stashed changes
 import com.cogether.server.reply.dto.ReplyDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -49,8 +53,12 @@ public class BoardDto {
         private String title;
         private String content;
         private LocalDateTime date;
+<<<<<<< Updated upstream
         private long votes;
         private Member member;
+=======
+        //private Member member;
+>>>>>>> Stashed changes
         //List<Reply>시 무한루프, 에러 발생, 엔티티 <-> DTO 계층 구분 확실히 해둘 것
         private List<ReplyDto.response> replies;
     }

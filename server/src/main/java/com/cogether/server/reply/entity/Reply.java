@@ -1,6 +1,10 @@
 package com.cogether.server.reply.entity;
 
+<<<<<<< Updated upstream
 import com.cogether.server.member.entity.Member;
+=======
+//import com.cogether.server.member.entity.Member;
+>>>>>>> Stashed changes
 import com.cogether.server.board.entity.Board;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -25,8 +29,11 @@ public class Reply {
     @Column(nullable = false)
     private LocalDateTime date = LocalDateTime.now();
 
+<<<<<<< Updated upstream
     @Column(nullable = false)
     private long votes;
+=======
+>>>>>>> Stashed changes
 
 
 
@@ -43,6 +50,7 @@ public class Reply {
     }
 
 
+<<<<<<< Updated upstream
     @OneToOne
     @JoinColumn(name = "MEMBER_ID")
     private Member member;
@@ -55,6 +63,19 @@ public class Reply {
         this.replyId = replyId;
         this.content = content;
         this.votes = votes;
+=======
+    //@OneToOne
+    //@JoinColumn(name = "MEMBER_ID")
+    //private Member member;
+
+    //public void setMember(Member member){
+        //this.member = member;
+    //}
+
+    public Reply(Long replyId, String content) {
+        this.replyId = replyId;
+        this.content = content;
+>>>>>>> Stashed changes
     }
 }
 
