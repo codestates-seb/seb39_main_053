@@ -35,19 +35,21 @@ const QuestionDetail = () => {
         .get(`http://localhost:5000/answers`)
         .then((res) => {
             setTextArray(res.data);
-            // console.log(res.data[0].questionBody);       
+            // console.log(res.data);       
         })
         .catch(err => console.log(err));
     }, []);
 
     const handleAnswerSubmit = () => {
-        // axios
-        // .post(`http://localhost:5000/answers`)
-        // .then((res) => {
-        //     setTextArray(res.data);
-        //     console.log(res.data[0].questionBody); 
-        // })
-        // .catch(err => console.log(err));
+        axios
+        .post(`http://localhost:5000/answers`,
+                {
+                    content : textArray
+                })
+        .then((res) => {
+            setTextArray(res.data);
+        })
+        .catch(err => console.log(err));
     }
     
 

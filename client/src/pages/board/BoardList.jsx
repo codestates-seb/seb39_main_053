@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import Navbar from '../../component/commons/NavigationBar';
 import styled from "styled-components";
-import { ReactComponent as Icon } from "../../assets/유저아이콘.svg";
+import { ReactComponent as Icon } from "../../assets/userIcon.svg";
 import FilterWriteBar from '../../component/commons/FilterWrite';
 import HoverModal from '../../component/commons/HoverModal';
 import { boardMore } from '../../component/commons/modalText';

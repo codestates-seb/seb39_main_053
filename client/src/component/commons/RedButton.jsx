@@ -8,6 +8,7 @@ const RedButton = styled.button`
     background-color:transparent;
     padding: 46px;
     position: relative;
+    z-index: 0.5;
     /* width: 160%; */
     &:hover {
         cursor: pointer;

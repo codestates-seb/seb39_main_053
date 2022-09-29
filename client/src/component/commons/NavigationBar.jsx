@@ -35,6 +35,7 @@ const Container = styled.nav`
     margin: 0;
     padding: 0;
     height: 74px;
+    z-index: 1px;
     /* &:hover {
         cursor: pointer;
         color: #FFDE32;
