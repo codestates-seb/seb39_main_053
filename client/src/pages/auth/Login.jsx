@@ -6,8 +6,6 @@ import * as yup from "yup";
 import { useNavigate } from "react-router-dom";
 import useAuthStore from '../../store/authStore';
 
-
-
 const LogIn = () => {
     const navigate = useNavigate();
     const { isLogin, setIsLogin } = useAuthStore();
@@ -54,8 +52,8 @@ const LogIn = () => {
         resolver: yupResolver(schema),
     });
     
-    const password = useRef();
-    password.current = watch("password");
+    // const password = useRef();
+    // password.current = watch("password");
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>

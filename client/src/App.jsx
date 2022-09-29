@@ -17,8 +17,10 @@ import LogIn from "./pages/auth/Login";
 function App() {
   return (
   <>
-      <Routes>
-        <Route path="/" element={<LogIn />} />
+      <SignUp/>
+      <LogIn/>
+      {/* <Routes>
+        <Route path="/" element={<IntroPage />} />
         <Route path="/questionList" element={<QuestionList />} />
         <Route path="/questionDetail" element={<QuestionDetail />} />
         <Route path="/questionWrite" element={<QuestionWrite />} />
@@ -26,7 +28,7 @@ function App() {
         <Route path="/boardList" element={<BoardList />} />
         <Route path="/boardDetail" element={<BoardDetail />} />
         <Route path="/boardWrite" element={<BoardWrite />} /> 
-      </Routes>
+      </Routes> */}
   </>   
   )
 }
