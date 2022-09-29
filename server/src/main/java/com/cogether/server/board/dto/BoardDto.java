@@ -1,10 +1,8 @@
 package com.cogether.server.board.dto;
 
-<<<<<<< Updated upstream
-import com.cogether.server.member.entity.Member;
-=======
+
 //import com.cogether.server.member.entity.Member;
->>>>>>> Stashed changes
+
 import com.cogether.server.reply.dto.ReplyDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

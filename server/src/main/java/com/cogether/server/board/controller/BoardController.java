@@ -3,13 +3,10 @@ package com.cogether.server.board.controller;
 import com.cogether.server.dto.MultiResponseDto;
 
 import com.cogether.server.dto.SingleResponseDto;
-<<<<<<< Updated upstream
-import com.cogether.server.member.entity.Member;
-import com.cogether.server.member.service.MemberService;
-=======
+
 //import com.cogether.server.member.entity.Member;
 //import com.cogether.server.member.service.MemberService;
->>>>>>> Stashed changes
+
 import com.cogether.server.board.entity.Board;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
@@ -30,20 +27,17 @@ public class BoardController {
 
     private final com.cogether.server.board.service.BoardService boardService;
     private final com.cogether.server.board.mapper.BoardMapper mapper;
-<<<<<<< Updated upstream
-    private final MemberService memberService;
 
-    public BoardController(com.cogether.server.board.service.BoardService boardService,
-                           com.cogether.server.board.mapper.BoardMapper mapper,
-                           MemberService memberService){
-        this.boardService = boardService;
-        this.mapper = mapper;
-        this.memberService = memberService;
-    }
+    //private final MemberService memberService;
 
+    //public BoardController(com.cogether.server.board.service.BoardService boardService,
+                           //com.cogether.server.board.mapper.BoardMapper mapper,
+                           //MemberService memberService){
+        //this.boardService = boardService;
+        //this.mapper = mapper;
+        //this.memberService = memberService;
+    //}
 
-    @GetMapping
-=======
     //private final MemberService memberService;
 
     public BoardController(com.cogether.server.board.service.BoardService boardService,
@@ -54,7 +48,7 @@ public class BoardController {
 
 
     @GetMapping("/boardpage")
->>>>>>> Stashed changes
+
     public ResponseEntity getBoards(@Positive @RequestParam int page,
                                        @Positive @RequestParam int size){
         Page<Board> pageBoards = boardService.findBoards(page-1,size);
@@ -70,12 +64,10 @@ public class BoardController {
     @PostMapping("/upload")
     public ResponseEntity postBoard(@Valid @RequestBody com.cogether.server.board.dto.BoardDto.Post boardPost){
         Board board = mapper.boardPostToBoard(boardPost);
-<<<<<<< Updated upstream
-        Member member = memberService.findMember(boardPost.getUsername());
-        board.setMember(member);
-=======
 
->>>>>>> Stashed changes
+        //Member member = memberService.findMember(boardPost.getUsername());
+        //board.setMember(member);
+
 
         Board posted = boardService.createBoard(board);
         com.cogether.server.board.dto.BoardDto.response response = mapper.boardToBoardResponse(posted);
