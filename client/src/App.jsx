@@ -27,7 +27,7 @@ function App() {
         <Route path="/questionWrite" element={<QuestionWrite />} />
 
         <Route path="/boardList" element={<BoardList />} />
-        <Route path="/boardDetail" element={<BoardDetail />} />
+        <Route path="/boardDetail/:qid" element={<BoardDetail />} />
         <Route path="/boardWrite" element={<BoardWrite />} /> 
       </Routes> */}
   </>   

@@ -24,6 +24,8 @@ const Navbar = () => {
 
 export default Navbar;
 
+   
+
 
 const Container = styled.nav`
     top: 0;
@@ -42,3 +44,4 @@ const Container = styled.nav`
         width: 100;
     } */
 `
+
