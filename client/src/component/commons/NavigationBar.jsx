@@ -25,20 +25,23 @@ const Navbar = () => {
 export default Navbar;
 
    
-   const Container = styled.nav`
-        top: 0;
-        position: sticky;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background-color: #1B6DFF;
-        margin: 0;
-        padding: 0;
-        height: 74px;
-        /* &:hover {
-            cursor: pointer;
-            color: #FFDE32;
-            width: 100;
-        } */
-    `
+
+
+const Container = styled.nav`
+    top: 0;
+    position: sticky;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1B6DFF;
+    margin: 0;
+    padding: 0;
+    height: 74px;
+    z-index: 1px;
+    /* &:hover {
+        cursor: pointer;
+        color: #FFDE32;
+        width: 100;
+    } */
+`
 
