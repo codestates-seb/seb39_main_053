@@ -1,10 +1,8 @@
-import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { ReactComponent as Penlogo } from "../../assets/penIcon.svg";
 import RedButton from "./RedButton";
 
 const FilterWriteBar = ({onClick}) => {
-    const navigate = useNavigate();
     
     return (
         <>
@@ -27,6 +25,7 @@ export default FilterWriteBar;
 const Container = styled.div`
     border-bottom: 2px solid #1B6DFF;
     display: flex;
+    width: 897px;
     height: 59px;
     justify-content: space-between;
     align-items: center;
