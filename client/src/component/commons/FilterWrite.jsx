@@ -20,7 +20,7 @@ const FilterWriteBar = ({onClick}) => {
     );
 };
 
-
+export default FilterWriteBar;
 
 const Container = styled.div`
     border-bottom: 2px solid #1B6DFF;
@@ -37,12 +37,5 @@ const SmallContainer = styled.div`
 `
 const RealSmall = styled.div`
 display: flex;
-
 `
-
-
-
-export default FilterWriteBar;
-
-
 

@@ -35,18 +35,19 @@ const QuestionDetail = () => {
         .get(`http://localhost:5000/answers`)
         .then((res) => {
             setTextArray(res.data);
-            console.log(res.data[0].questionBody);       
+            // console.log(res.data[0].questionBody);       
         })
         .catch(err => console.log(err));
     }, []);
 
-    const handleAnswerSubmit = async () => {
-        try {
-            const result = await axios.post(`http://localhost:5000/answers`)
-            // console.log(data) 
-        } catch(e) {
-            console.log(e)
-        }
+    const handleAnswerSubmit = () => {
+        // axios
+        // .post(`http://localhost:5000/answers`)
+        // .then((res) => {
+        //     setTextArray(res.data);
+        //     console.log(res.data[0].questionBody); 
+        // })
+        // .catch(err => console.log(err));
     }
     
 
