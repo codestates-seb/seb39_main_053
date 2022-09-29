@@ -53,13 +53,7 @@ public class BoardDto {
         private String title;
         private String content;
         private LocalDateTime date;
-<<<<<<< Updated upstream
-        private long votes;
-        private Member member;
-=======
         //private Member member;
->>>>>>> Stashed changes
-        //List<Reply>시 무한루프, 에러 발생, 엔티티 <-> DTO 계층 구분 확실히 해둘 것
         private List<ReplyDto.response> replies;
     }
 }
