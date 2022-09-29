@@ -1,0 +1,7 @@
+# AWS RDS 파라미터 스토어 설정
+#aws:
+#  paramstore:
+#    enabled: true
+#    prefix: /spring-boot-aws
+#    name: helloworld
+#    profileSeparator: _
