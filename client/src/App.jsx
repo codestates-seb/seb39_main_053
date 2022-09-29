@@ -11,6 +11,7 @@ import QuestionDetail from "./pages/question/questionDetail/QuestionDetail";
 import QuestionWrite from "./pages/question/questionWrite/QuestionWrite";
 
 function App() {
+
   return (
   <>
 

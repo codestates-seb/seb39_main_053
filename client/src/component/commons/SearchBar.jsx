@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 import { ReactComponent as Search } from "../../assets/searchIcon.svg"
-import Button from "./YellowButton";  
+import Button from "./YellowButton"; 
 
 const SearchBar = ({onChange, onSubmit, search}) => {
     return (
