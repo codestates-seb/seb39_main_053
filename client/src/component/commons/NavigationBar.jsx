@@ -23,6 +23,7 @@ const Navbar = () => {
 }
 
 export default Navbar;
+
    
    const Container = styled.nav`
         top: 0;
@@ -40,3 +41,4 @@ export default Navbar;
             width: 100;
         } */
     `
+

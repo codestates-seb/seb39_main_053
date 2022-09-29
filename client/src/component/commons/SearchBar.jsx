@@ -18,7 +18,6 @@ const SearchBar = ({onChange, onSubmit, search}) => {
 
 export default SearchBar;
 
-
 const SearchContainer = styled.form`
     display: flex;
     justify-content: center;
