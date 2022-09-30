@@ -13,47 +13,41 @@ const Article = ({search}) => {
 
     const [questions, setQuestions] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
-    const [page, setPage] = useState(1);
     
 
     const navigate = useNavigate();
 
     const filterdQuestions = questions.filter( question=> 
-        question.questionBody.toUpperCase().includes(search.toUpperCase()));
+        question.content.toUpperCase().includes(search.toUpperCase()));
         
 
     useEffect(() => {
         axios
-        .get(`http://localhost:5000/questions?_page=${page}&_limit=30&_sort=id&_order=desc`)
+        .get(`http://localhost:5000/questions`)
         .then((res) => {
             setQuestions(res.data);
             // console.log(res.data);
-        }).then(() => setIsLoading(false))
-    },[page]);
+        })
+        .then(() => setIsLoading(false))
+    },[]);
     
 
-    return (
-        <>
-        {filterdQuestions.map((data) => {
-            
-            const {questionId, questionWriter, questionTitle, questionBody, createdAt} = data;
+
 
         return (
-            <div key={questionId}>
-                <Container>
-                    <Icon src={lconSrc} />
-                    <SmallContainer>
-                        <HoverH2 onClick={() => {navigate(`/questionDetail`)}}>{questionTitle}</HoverH2>
-                        <div>{questionBody}</div>
-                        {/* <div onClick={() => {navigate(`/detail/${questionId}`)}}>{questionBody}</div> */}
-                        <div style={{color:"#747474"}}>{questionWriter} {new Intl.DateTimeFormat("ko", { dateStyle: 'medium', timeStyle: 'medium' }).format(new Date())}</div>
-                    </SmallContainer>
-                </Container>
+            <div>
+                    {filterdQuestions.map(data => (
+                        <Container key={data.id}>
+                        <Icon src={lconSrc} />
+                        <SmallContainer2>
+                            <HoverH2 onClick={() => {navigate(`/questionDetail/${data.id}`)}}>{data.title}</HoverH2>
+                            <div>{data.content}</div>
+                            <div style={{color:"#747474"}}>{data.writer_id} {data.created_at}</div>
+                        </SmallContainer2>
+                        </Container>
+                    ))}
             </div>
         );
-    })};
-    </>
-    )
 }
 
 export default Article;
@@ -63,11 +57,11 @@ const Container = styled.div`
     display: flex;
     width: 897px;
     height: 220px;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     align-items: center;
     /* padding: 25px; */
 `
-const SmallContainer = styled.div`
+const SmallContainer2 = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;

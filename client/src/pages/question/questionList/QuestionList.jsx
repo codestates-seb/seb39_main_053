@@ -27,7 +27,6 @@ const QuestionList = () => {
             <SmallContainer>
                 <SearchBar search={search} setSearch={setSearch} onChange={onChange} onSubmit={onSubmit}/>
                 <FilterWriteBar onClick={() => {navigate(`/questionWrite`)}}/>
-                
                 <Article search={search} />
             </SmallContainer>
         </>

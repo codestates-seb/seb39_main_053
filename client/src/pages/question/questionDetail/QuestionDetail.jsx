@@ -10,6 +10,8 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 
 const QuestionDetail = () => {
+    const [questionDetail, setQuestionDetail] = useState([]);
+    let {qid} = useParams();
     const [text, setText] = useState("");
     const onChange = (e) => {
         setText(e.target.value)
@@ -20,15 +22,24 @@ const QuestionDetail = () => {
         setText("");
     }
     const handleButtonClick = (e) => {
-        const comment = {
+        const answers = {
             id: textArray.length + 1,
             content: text,
             createdAt : new Date().toLocaleDateString('ko-kr'),
             updatedAt : new Date().toLocaleDateString('ko-kr'),
         };
-        const newComments = [comment, ...textArray];
+        const newComments = [answers, ...textArray];
         setTextArray(newComments);
     };
+    useEffect(() => {
+        axios
+        .get(`http://localhost:5000/questions/${qid}`)
+        .then((res) => {
+            setQuestionDetail(res.data);
+            // console.log(res.data);       
+        })
+        .catch(err => console.log(err));
+    }, [qid]);
 
     useEffect(() => {
         axios
@@ -43,8 +54,10 @@ const QuestionDetail = () => {
     const handleAnswerSubmit = () => {
         axios
         .post(`http://localhost:5000/answers`,
-                {
-                    content : textArray
+                {   
+                    writer_id : "닉네임",
+                    content : text,
+                    created_at : new Intl.DateTimeFormat("ko", { dateStyle: 'medium', timeStyle: 'medium' }).format(new Date())
                 })
         .then((res) => {
             setTextArray(res.data);
@@ -59,13 +72,13 @@ const QuestionDetail = () => {
             <Container>
                 <TitleContainer>
                     <div style={{width:"750px"}}>
-                    <Icon src={IconSrc} /> @Configuration은 한번만 달면 되는지 알고싶어요
+                    <Icon src={IconSrc} /> {questionDetail.title}
                         <SmallContainer>
-                            닉네임 날짜 <Button basicColor="white" style={{padding:"2px"}}>질문 수정</Button>
+                        {questionDetail.writer_id} {questionDetail.created_at} <Button basicColor="white" style={{padding:"2px"}}>질문 수정</Button>
                         </SmallContainer>
                     </div>
                 </TitleContainer>
-                <BodyContainer>질문 내용</BodyContainer>
+                <BodyContainer>{questionDetail.content}</BodyContainer>
 
                 <CommentContainer>
                     <AskContainer>
@@ -81,14 +94,14 @@ const QuestionDetail = () => {
                             </div>
                         </CommentTitleContainer>
                             <InputBox type="text" value={text} onChange={onChange}>
-                                
+                            
                             </InputBox>
                         <Button type="submit" basicColor="black" style={{padding:"2px"}} onClick={handleAnswerSubmit}>댓글 등록</Button>
-                        {/*https://www.inflearn.com/questions/146287*/}
                     </CommentBobyContainer>
                 </CommentContainer>
-                {textArray.map((comment, idx) => {
-                    return <Comment comment={comment} key={comment.id} />
+                {textArray.map((answers) => {
+                    console.log(answers);
+                    return <Comment content={answers.content} created_at={answers.created_at} key={answers.id} />
                 })}
             </Container>
             

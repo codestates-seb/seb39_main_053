@@ -12,6 +12,7 @@ import { useNavigate } from "react-router-dom";
 
 
 
+
 const QuestionWrite = () => {
     // 로그인 기능 구현이후에 로그인 한 해당 유저의 닉네임으로 넣을 예정
     const navigate = useNavigate();
@@ -41,12 +42,11 @@ const QuestionWrite = () => {
         try {
             const result = await axios
             .post('http://localhost:5000/questions',
-                {   questionTitle: "titleRef.current.value",
-                    questionBody: "bodyRef.current.value",
-                    questionId: 50,
-                    questionWriter: "leedesign",
-                    picture: null,
-                    asked: 7
+                {   
+                    writer_id: "leedesign",
+                    title: titleRef.current.value,
+                    content: bodyRef.current.value,
+                    created_at : new Intl.DateTimeFormat("ko", { dateStyle: 'medium', timeStyle: 'medium' }).format(new Date()),
                 })
             .then((res) => {
                 // navigate("/questionList");
