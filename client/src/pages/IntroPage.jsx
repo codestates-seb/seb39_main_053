@@ -4,11 +4,21 @@ import Button from "../component/commons/YellowButton";
 import { ReactComponent as BigLogo } from "../assets/bigLogo.svg"
 import StyledEarth from "../component/commons/StyledEarth";
 import "../App.css"
+import { useNavigate } from "react-router-dom";
+import LogIn from "./auth/Login";
+import SignUp from "./auth/Signup";
+import loginModalStore from "../store/loginModalStore";
+import signupModalStore from "../store/signupModalStore";
+
+
 
 
 const Intro = () => {
     const [visible, setVisible] = useState(false);
+    const navigate = useNavigate(); 
     
+    const { loginModal, setLoginModal } = loginModalStore();
+    const { signupModal, setSignupModal } = signupModalStore();
 
     return (
     
@@ -16,9 +26,11 @@ const Intro = () => {
             <BigLogo style={{width:820}}/>
             
             <SmallContainer>
-                <Button hoverWidth= "160%" fontSize="3.8rem"><StyledEarth />로그인</Button>
-                <Button hoverWidth= "160%" fontSize="3.8rem"><StyledEarth />회원가입</Button>
-                <Button hoverWidth= "160%" fontSize="3.8rem"><StyledEarth />손님</Button>
+                <Button hoverWidth= "160%" fontSize="3.8rem" basicColor="white" onClick={() => { setLoginModal(true) }}><StyledEarth />로그인</Button>
+                {loginModal === true ? <LogIn /> : null}
+                <Button hoverWidth= "160%" fontSize="3.8rem" basicColor="white" onClick={() => { setSignupModal(true) }}><StyledEarth />회원가입</Button>
+                {signupModal === true ? <SignUp /> : null}
+                <Button hoverWidth= "160%" fontSize="3.8rem" basicColor="white" onClick={() => {navigate(`/questionList`)}}><StyledEarth />손님</Button>
             </SmallContainer>
         </Container>
     )

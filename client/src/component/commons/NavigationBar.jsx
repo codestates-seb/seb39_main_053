@@ -1,17 +1,21 @@
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { ReactComponent as Navlogo } from "../../assets/navLogo.svg"
 import Button from "./YellowButton";
 
 
+
 const Navbar = () => {
+    const navigate = useNavigate();
+
     return (
         <>
             <Container>
                 <Navlogo style={{height:80}}/>
                 <div>
-                    <Button basicColor="white" fontSize="1.1rem">질문&답변</Button>
-                    <Button basicColor="white" fontSize="1.1rem">정보 공유</Button>
-                    <Button basicColor="white" fontSize="1.1rem">친구 찾기</Button>
+                    <Button basicColor="white" fontSize="1.1rem" onClick={() => {navigate(`/questionList`)}}>질문&답변</Button>
+                    <Button basicColor="white" fontSize="1.1rem" >정보 공유</Button>
+                    <Button basicColor="white" fontSize="1.1rem" >친구 찾기</Button>
                 </div>
                 <div>
                     <Button basicColor="white" fontSize="0.9rem">회원가입</Button>
@@ -24,7 +28,7 @@ const Navbar = () => {
 
 export default Navbar;
 
-   
+
 
 
 const Container = styled.nav`

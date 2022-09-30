@@ -43,8 +43,8 @@ const Article = ({search}) => {
                 <Container>
                     <Icon src={lconSrc} />
                     <SmallContainer>
-                        <h2>질문입니다.</h2>
-                        <div onClick={() => {navigate(`/detail`)}}>{questionBody}</div>
+                        <HoverH2 onClick={() => {navigate(`/questionDetail`)}}>{questionTitle}</HoverH2>
+                        <div>{questionBody}</div>
                         {/* <div onClick={() => {navigate(`/detail/${questionId}`)}}>{questionBody}</div> */}
                         <div style={{color:"#747474"}}>{questionWriter} {new Intl.DateTimeFormat("ko", { dateStyle: 'medium', timeStyle: 'medium' }).format(new Date())}</div>
                     </SmallContainer>
@@ -74,4 +74,10 @@ const SmallContainer = styled.div`
     height: 110px;
 `
 const Icon = styled.img`
+`
+const HoverH2 =styled.h2`
+    &:hover {
+        cursor: pointer;
+        color: #FFDE32;
+    }
 `

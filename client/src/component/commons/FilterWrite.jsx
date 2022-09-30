@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { ReactComponent as Penlogo } from "../../assets/penIcon.svg";
 import RedButton from "./RedButton";
 
-const FilterWriteBar = ({onClick}) => {
+const FilterWriteBar = ({onClick, onSubmit}) => {
     
     return (
         <>
@@ -13,7 +13,7 @@ const FilterWriteBar = ({onClick}) => {
                 </SmallContainer>
                 <RealSmall>
                     <Penlogo/>
-                    <RedButton style={{padding: "7px"}} onClick={onClick}>글쓰기</RedButton>
+                    <RedButton style={{padding: "7px"}} onClick={onClick} onSubmit={onSubmit}>글쓰기</RedButton>
                 </RealSmall>
             </Container>
         </>
