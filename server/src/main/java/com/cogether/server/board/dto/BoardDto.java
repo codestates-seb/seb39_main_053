@@ -50,7 +50,7 @@ public class BoardDto {
         private long boardId;
         private String title;
         private String content;
-        private LocalDateTime date;
+        private LocalDateTime created_at;
         //private Member member;
         private List<ReplyDto.response> replies;
     }

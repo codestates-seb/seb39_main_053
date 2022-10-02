@@ -38,8 +38,6 @@ public class BoardController {
         //this.memberService = memberService;
     //}
 
-    //private final MemberService memberService;
-
     public BoardController(com.cogether.server.board.service.BoardService boardService,
                            com.cogether.server.board.mapper.BoardMapper mapper){
         this.boardService = boardService;
