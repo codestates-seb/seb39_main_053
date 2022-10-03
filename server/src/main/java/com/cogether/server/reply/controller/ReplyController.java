@@ -1,5 +1,6 @@
 package com.cogether.server.reply.controller;
 
+import com.cogether.server.board.service.BoardService;
 import com.cogether.server.dto.MultiResponseDto;
 import com.cogether.server.dto.SingleResponseDto;
 
@@ -32,7 +33,7 @@ public class ReplyController {
 
     //private final MemberService memberService;
 
-    private final com.cogether.server.board.service.BoardService boardService;
+    private final BoardService boardService;
 
     public ReplyController(ReplyService replyService,
                            ReplyMapper mapper,
@@ -41,7 +42,7 @@ public class ReplyController {
 
         //this.memberService = memberService;
 
-                           com.cogether.server.board.service.BoardService boardService) {
+                           BoardService boardService) {
         this.replyService = replyService;
         this.mapper = mapper;
 
@@ -49,8 +50,8 @@ public class ReplyController {
     }
 
 
-    @GetMapping("/{board-id}/replies")
-    public ResponseEntity getReplies(@PathVariable("board-id") @Positive long boardId,
+    @GetMapping("/{boardId}/replies")
+    public ResponseEntity getReplies(@PathVariable("boardId") @Positive long boardId,
                                      @RequestParam @Positive int page, @RequestParam @Positive int size){
         Page<Reply> pageReplies = replyService.findReplies(boardId,page-1,size);
         List<Reply> replies = pageReplies.getContent();
@@ -84,9 +85,9 @@ public class ReplyController {
     }
 
 
-    @DeleteMapping("/{board-id}/{reply-id}")
-    public ResponseEntity deleteReply(@PathVariable("board-id") @Positive long boardId,
-                                      @PathVariable("reply-id") @Positive long replyId){
+    @DeleteMapping("/{boardId}/{replyId}")
+    public ResponseEntity deleteReply(@PathVariable("boardId") @Positive long boardId,
+                                      @PathVariable("replyId") @Positive long replyId){
 
         replyService.deleteReply(replyId);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);

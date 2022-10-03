@@ -40,6 +40,7 @@
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
     <filter-actions connection-id="75a55639-d6ce-4e36-a3f2-45ab96d8584d" dataset="helloworld.board" active-filter-id="" />
+    <filter-actions connection-id="75a55639-d6ce-4e36-a3f2-45ab96d8584d" dataset="helloworld.reply" active-filter-id="" />
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
     <last-used-providers />

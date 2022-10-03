@@ -45,7 +45,7 @@ public class ReplyDto {
     public static class response{
         private long replyId;
         private String content;
-        private LocalDateTime date;
+        private LocalDateTime created_at;
 
         //private Member member;
 

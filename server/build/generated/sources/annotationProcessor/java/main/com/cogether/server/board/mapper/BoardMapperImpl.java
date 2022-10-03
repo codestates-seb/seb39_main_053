@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2022-09-29T17:50:55+0900",
+    date = "2022-10-03T09:50:08+0900",
     comments = "version: 1.5.2.Final, compiler: IncrementalProcessingEnvironment from gradle-language-java-7.4.jar, environment: Java 11.0.16.1 (Oracle Corporation)"
 )
 @Component
@@ -57,7 +57,7 @@ public class BoardMapperImpl implements BoardMapper {
         long boardId = 0L;
         String title = null;
         String content = null;
-        LocalDateTime date = null;
+        LocalDateTime created_at = null;
 
         replies = replyListToresponseList( board.getReplies() );
         if ( board.getBoardId() != null ) {
@@ -65,9 +65,9 @@ public class BoardMapperImpl implements BoardMapper {
         }
         title = board.getTitle();
         content = board.getContent();
-        date = board.getDate();
+        created_at = board.getCreated_at();
 
-        BoardDto.response response = new BoardDto.response( boardId, title, content, date, replies );
+        BoardDto.response response = new BoardDto.response( boardId, title, content, created_at, replies );
 
         return response;
     }

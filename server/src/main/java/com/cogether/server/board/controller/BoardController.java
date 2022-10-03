@@ -1,5 +1,7 @@
 package com.cogether.server.board.controller;
 
+import com.cogether.server.board.mapper.BoardMapper;
+import com.cogether.server.board.service.BoardService;
 import com.cogether.server.dto.MultiResponseDto;
 
 import com.cogether.server.dto.SingleResponseDto;
@@ -25,8 +27,8 @@ import java.util.List;
 @RequestMapping("/boards")
 public class BoardController {
 
-    private final com.cogether.server.board.service.BoardService boardService;
-    private final com.cogether.server.board.mapper.BoardMapper mapper;
+    private final BoardService boardService;
+    private final BoardMapper mapper;
 
     //private final MemberService memberService;
 
@@ -38,8 +40,8 @@ public class BoardController {
         //this.memberService = memberService;
     //}
 
-    public BoardController(com.cogether.server.board.service.BoardService boardService,
-                           com.cogether.server.board.mapper.BoardMapper mapper){
+    public BoardController(BoardService boardService,
+                           BoardMapper mapper){
         this.boardService = boardService;
         this.mapper = mapper;
     }
@@ -77,15 +79,15 @@ public class BoardController {
     }
 
 
-    @DeleteMapping("/{board-id}")
-    public ResponseEntity deleteBoard(@PathVariable("board-id") @Positive long boardId){
+    @DeleteMapping("/{boardId}")
+    public ResponseEntity deleteBoard(@PathVariable("boardId") @Positive long boardId){
         boardService.deleteBoard(boardId);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
 
-    @GetMapping("/{board-id}")
-    public ResponseEntity getBoard(@PathVariable("board-id") @Positive long boardId){
+    @GetMapping("/{boardId}")
+    public ResponseEntity getBoard(@PathVariable("boardId") @Positive long boardId){
         Board board = boardService.findBoard(boardId);
         com.cogether.server.board.dto.BoardDto.response response = mapper.boardToBoardResponse(board);
 

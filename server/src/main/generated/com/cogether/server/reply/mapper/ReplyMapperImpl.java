@@ -51,15 +51,15 @@ public class ReplyMapperImpl implements ReplyMapper {
 
         long replyId = 0L;
         String content = null;
-        LocalDateTime date = null;
+        LocalDateTime created_at = null;
 
         if ( reply.getReplyId() != null ) {
             replyId = reply.getReplyId();
         }
         content = reply.getContent();
-        date = reply.getDate();
+        created_at = reply.getDate();
 
-        ReplyDto.response response = new ReplyDto.response( replyId, content, date );
+        ReplyDto.response response = new ReplyDto.response( replyId, content, created_at );
 
         return response;
     }

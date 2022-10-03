@@ -57,7 +57,7 @@ public class BoardMapperImpl implements BoardMapper {
         long boardId = 0L;
         String title = null;
         String content = null;
-        LocalDateTime date = null;
+        LocalDateTime created_at = null;
 
         replies = replyListToresponseList( board.getReplies() );
         if ( board.getBoardId() != null ) {
@@ -65,9 +65,9 @@ public class BoardMapperImpl implements BoardMapper {
         }
         title = board.getTitle();
         content = board.getContent();
-        date = board.getDate();
+        created_at = board.getDate();
 
-        BoardDto.response response = new BoardDto.response( boardId, title, content, date, replies );
+        BoardDto.response response = new BoardDto.response( boardId, title, content, created_at, replies );
 
         return response;
     }
@@ -93,15 +93,15 @@ public class BoardMapperImpl implements BoardMapper {
 
         long replyId = 0L;
         String content = null;
-        LocalDateTime date = null;
+        LocalDateTime created_at = null;
 
         if ( reply.getReplyId() != null ) {
             replyId = reply.getReplyId();
         }
         content = reply.getContent();
-        date = reply.getDate();
+        created_at = reply.getDate();
 
-        ReplyDto.response response = new ReplyDto.response( replyId, content, date );
+        ReplyDto.response response = new ReplyDto.response( replyId, content, created_at );
 
         return response;
     }
