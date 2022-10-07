@@ -29,7 +29,7 @@ const QuestionWrite = () => {
         // console.log(qustionBody);
     }
     // const showToast = () => {
-    //     toast.success("질문이 등록되었습니다!");
+   
     // }
     const onSubmit = async (e) => {
         axios.defaults.withCredentials = true;
@@ -54,16 +54,7 @@ const QuestionWrite = () => {
                 navigate("/questionList");
                 window.alert("질문이 등록되었습니다!");
             })    
-            // .then((res) => {    
-            //     toast("질문이 등록되었습니다!", {
-            //         position: "top-center",
-            //         autoClose: 1000,
-            //         hideProgressBar: true
-            //     });
-            // })
-            // .then((res) => {
-            //     navigate("/questionList");
-            // });
+            
             console.log(result);
         } catch(e){
             console.log(e);
@@ -88,7 +79,7 @@ const QuestionWrite = () => {
                 </ButtonContainer>
                 
             </SmallContainer >
-            {/* { submit && <ToastContainer />} */}
+            
         </div>
     );
 };
