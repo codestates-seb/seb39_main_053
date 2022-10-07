@@ -5,53 +5,91 @@ import SearchBar from "../../../component/commons/SearchBar";
 import { useState } from "react";
 import Input from "../../../component/commons/Input";
 import Button from "../../../component/commons/YellowButton";
+import { useRef } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+
 
 
 
 const QuestionWrite = () => {
-    // 로그인 기능 구현이후에 로그인 한 해당 유저의 닉네임으로 넣을 예정
-    const [username, setUser] = useState("아이유");
+    const navigate = useNavigate();
 
-
+    // const [submit, setSubmit] = useState(false);
     const [qustionTitle, setQustionTitle] = useState("");
     const [qustionBody, setQustionBody] = useState("");
     const handleChangeTitle = (e) => {
         setQustionTitle(e.target.value)
+        // console.log(qustionTitle);
     }
     const handleChangeBody = (e) => {
         setQustionBody(e.target.value)
+        // console.log(qustionBody);
     }
-    const onSubmit = (e) => {           
+    // const showToast = () => {
+    //     toast.success("질문이 등록되었습니다!");
+    // }
+    const onSubmit = async (e) => {
+        axios.defaults.withCredentials = true;
+
+        console.log(bodyRef.current.value);
+        console.log(titleRef.current.value)
+
         e.preventDefault();
         setQustionTitle("");
         setQustionBody("");
-    }
-    // const handleButtonClick = (e) => {
-    //     const comment = {
-    //         id: textArray.length + 1,
-    //         content: text,
-    //         createdAt : new Date().toLocaleDateString('ko-kr'),
-    //         updatedAt : new Date().toLocaleDateString('ko-kr'),
-    //     };
-    //     const newComments = [comment, ...textArray];
-    //     setTextArray(newComments);
-    // };
 
+        try {
+            const result = await axios
+            .post('http://localhost:5000/questions',
+                {   
+                    writer_id: "leedesign",
+                    title: titleRef.current.value,
+                    content: bodyRef.current.value,
+                    created_at : new Intl.DateTimeFormat("ko", { dateStyle: 'medium', timeStyle: 'medium' }).format(new Date()),
+                })
+            .then((res) => {
+                navigate("/questionList");
+                window.alert("질문이 등록되었습니다!");
+            })    
+            // .then((res) => {    
+            //     toast("질문이 등록되었습니다!", {
+            //         position: "top-center",
+            //         autoClose: 1000,
+            //         hideProgressBar: true
+            //     });
+            // })
+            // .then((res) => {
+            //     navigate("/questionList");
+            // });
+            console.log(result);
+        } catch(e){
+            console.log(e);
+        }           
+    }
+
+    const bodyRef = useRef(null);
+    const titleRef = useRef(null);
+
+    
     return (
-        <>
+        <div>
             <Navbar />
-            
             <SmallContainer onSubmit={onSubmit}>
-                <TitleInput type="text" value={qustionTitle} onChange={handleChangeTitle}/>
+                <TitleInput type="text" value={qustionTitle} onChange={handleChangeTitle} ref={titleRef}/>
 
                 <BodyStyle />
-                <BodyInput type="text" value={qustionBody} onChange={handleChangeBody} />
+                <BodyInput type="text" value={qustionBody} onChange={handleChangeBody} ref={bodyRef}/>
                 <ButtonContainer>
-                    <Button>취소</Button>
-                    <Button>등록</Button>
+                    <Button onClick={() => {navigate(`/questionList`)}}>취소</Button>
+                    <Button >등록</Button>
                 </ButtonContainer>
+                
             </SmallContainer >
-        </>
+            {/* { submit && <ToastContainer />} */}
+        </div>
     );
 };
 
@@ -115,6 +153,8 @@ const BodyInput = styled.textarea.attrs({
     z-index: 0.9;
     outline: none;
     padding-left: 18px;
+    resize: none;
+
     &:hover{  
         background-color: #D4E3FF;
         cursor: pointer;
