@@ -2,6 +2,7 @@ import IntroPage from "./pages/IntroPage"
 import BoardList from "./pages/board/BoardList";
 import BoardDetail from "./pages/board/BoardDetail";
 import BoardWrite from "./pages/board/BoardWrite";
+import BoardEdit from "./pages/board/BoardEdit";
 import "./App.css";
 import { useState } from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
@@ -18,9 +19,9 @@ function App() {
 
   return (
   <>
-      <SignUp/>
-      <LogIn/>
-      {/* <Routes>
+      <Routes>
+      {/* <SignUp/>
+      <LogIn/> */}
         <Route path="/" element={<IntroPage />} />
         <Route path="/questionList" element={<QuestionList />} />
         <Route path="/questionDetail" element={<QuestionDetail />} />
@@ -29,7 +30,8 @@ function App() {
         <Route path="/boardList" element={<BoardList />} />
         <Route path="/boardDetail/:qid" element={<BoardDetail />} />
         <Route path="/boardWrite" element={<BoardWrite />} /> 
-      </Routes> */}
+        <Route path="/board/:qid/boardEdit" element={<BoardEdit/>} />
+      </Routes>
   </>   
   )
 }

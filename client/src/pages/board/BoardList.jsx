@@ -8,27 +8,32 @@ import HoverModal from '../../component/commons/HoverModal';
 import { boardMore } from '../../component/commons/modalText';
 import SearchBar from '../../component/commons/SearchBar';
 import { useNavigate } from 'react-router-dom';
-
-
-
+import { displayedAt } from '../../component/commons/dateFunction';
 
 function BoardList() {
     const [boardList, setBoardList] = useState([]);
-    const navigate = useNavigate();
     const [search, setSearch] = useState("");
+    const navigate = useNavigate();
+
     const onChange = (e) => {
       setSearch(e.target.value)
       // console.log(search);
     }
     const onSubmit = (e) => {
       e.preventDefault();
+      setBoardList(filterdQuestions)
       setSearch("");
       // console.log(search);
     }
 
+    const filterdQuestions = boardList.filter(question=> 
+      question.board_body.toUpperCase().includes(search.toUpperCase()) || question.board_title.toUpperCase().includes(search.toUpperCase()))
+
+      console.log(filterdQuestions)
+
     useEffect(() => {
       axios
-      .get("http://localhost:4000/board")
+      .get("http://localhost:5000/board")
       .then((res) => {
         setBoardList(res.data);
       })
@@ -46,16 +51,17 @@ function BoardList() {
           <SearchBar search={search} setSearch={setSearch} onChange={onChange} onSubmit={onSubmit}/>
         </SearchContainer>
         <FilterWriteBar onClick = {() => {navigate("/boardWrite")}}/>
-        {boardList.map((e) => {
-          const {id, board_title, board_body, board_nickname} = e;
-          
+        {filterdQuestions.map((e) => {
+          const {id, board_title, board_body, board_nickname, createdAt} = e;
+          const createdGap = displayedAt(new Date(createdAt))
+
           return <div key={id}>
             <Container>
               <IconContainer><Icon /></IconContainer>
               <SmallContainer>                 
                   <h2 onClick={() => navigate(`/boardDetail/${id}`)}>{board_title}</h2>                 
-                  <div>{board_body}</div>
-                  <UserAndDate>{board_nickname}</UserAndDate>
+                  <div dangerouslySetInnerHTML={{ __html : board_body }}></div>
+                  <UserAndDate>{board_nickname}{createdGap}</UserAndDate>
               </SmallContainer>  
             </Container>
           </div>
