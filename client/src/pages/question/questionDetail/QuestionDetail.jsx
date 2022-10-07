@@ -10,7 +10,7 @@ import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import useGetAxios from "../../../component/hooks/useGetAxios";
 import { ToastContainer, toast } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
+
 
 // import usePostAxios from "../../../component/hooks/usePostAxios";
 // import useEffectAxios from "../../../component/hooks/useEffectAxios";
