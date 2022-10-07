@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Comment = ({ content, created_at, key }) => {
+const Comment = ({ content, created_at, id }) => {
     // console.log(content);
     return (
-        <li id={key}>
+        <li id={id}>
             <Container>
                 <div>{content}</div>
                 <span style={{fontSize:"12px", color:"#747474"}}>{created_at}</span>

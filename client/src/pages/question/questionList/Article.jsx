@@ -3,37 +3,15 @@ import lconSrc from "../../../assets/userIcon.svg"
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import {useNavigate} from 'react-router-dom';
-import QuestionList from "./QuestionList";
-import SearchBar from "../../../component/commons/SearchBar";
-
-
+import useGetAxios from "../../../component/hooks/useGetAxios"
 
 const Article = ({search}) => {
-    // console.log(search)
-
-    const [questions, setQuestions] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
-    
-
+    const questions = useGetAxios(`http://localhost:5000/questions`)
     const navigate = useNavigate();
 
     const filterdQuestions = questions.filter( question=> 
         question.content.toUpperCase().includes(search.toUpperCase()));
         
-
-    useEffect(() => {
-        axios
-        .get(`http://localhost:5000/questions`)
-        .then((res) => {
-            setQuestions(res.data);
-            // console.log(res.data);
-        })
-        .then(() => setIsLoading(false))
-    },[]);
-    
-
-
-
         return (
             <div>
                     {filterdQuestions.map(data => (

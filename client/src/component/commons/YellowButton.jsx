@@ -8,6 +8,7 @@ const YellowButton = styled.button`
     background-color:transparent;
     padding: 46px;
     position: relative;
+    z-index: 0.1;
     /* width: 160%; */
     &:hover {
         cursor: pointer;

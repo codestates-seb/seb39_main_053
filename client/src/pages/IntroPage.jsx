@@ -23,7 +23,7 @@ const Intro = () => {
     return (
     
         <Container>
-            <BigLogo style={{width:820}}/>
+            <LogoContainer/>
             
             <SmallContainer>
                 <Button hoverWidth= "160%" fontSize="3.8rem" basicColor="white" onClick={() => { setLoginModal(true) }}><StyledEarth />로그인</Button>
@@ -48,10 +48,28 @@ const Container = styled.div`
     justify-content: space-around;
     padding-left: 50px;
     padding-bottom: 50px;
+    @media screen and (max-width: 850px) {
+        padding-left: 0px;
+        padding-bottom: 0px;
+    }
 `
-
 const SmallContainer = styled.div`
     display: flex;
     flex-direction: column;
-    margin-right: 250px;
+    /* margin-right: 250px; */
+    @media screen and (max-width: 650px) {
+        display: none; 
+    }
+`
+const LogoContainer = styled(BigLogo)`
+    width: 820px;
+    @media screen and (max-width: 1200px) {
+        width: 600px;    
+    }
+    @media screen and (max-width: 1000px) {
+        width: 450px;    
+    }
+    @media screen and (max-width: 850px) {
+        width: 300px;    
+    }
 `

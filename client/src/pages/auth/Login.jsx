@@ -12,8 +12,6 @@ import Input from "../../component/commons/Input";
 import loginModalStore from '../../store/loginModalStore';
 import signupModalStore from '../../store/signupModalStore';
 
-
-
 const LogIn = () => {
     const navigate = useNavigate();
     const { isLogin, setIsLogin } = useAuthStore();
