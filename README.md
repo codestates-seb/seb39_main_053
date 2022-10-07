@@ -20,7 +20,7 @@
 (추후 내용 추가)
 
 ## 📚 위키
-(추후 링크 추가)
+- [Project Wiki Link](https://github.com/codestates-seb/seb39_main_053/wiki)
 
 ## 🔀 Git Flow Branch Strategy
 - `main` : 제품으로 출시할 수 있는 브랜치
