@@ -25,7 +25,6 @@ export default FilterWriteBar;
 const Container = styled.div`
     border-bottom: 2px solid #1B6DFF;
     display: flex;
-    width: 897px;
     height: 59px;
     justify-content: space-between;
     align-items: center;
