@@ -6,7 +6,6 @@ import SearchBar from "../../../component/commons/SearchBar";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-
 const QuestionList = () => {
     const navigate = useNavigate();
     const [search, setSearch] = useState("");
@@ -23,12 +22,10 @@ const QuestionList = () => {
     return (
         <>
             <Navbar />
-            
             <SmallContainer>
                 <SearchBar search={search} setSearch={setSearch} onChange={onChange} onSubmit={onSubmit}/>
-                <FilterWriteBar onClick={() => {navigate(`/write`)}}/>
-                
-                <Article search={search}/>
+                <FilterWriteBar onClick={() => {navigate(`/questionWrite`)}}/>
+                <Article search={search} />
             </SmallContainer>
         </>
     );

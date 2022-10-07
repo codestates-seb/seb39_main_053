@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Button = styled.button`
+const YellowButton = styled.button`
     /* font-size: 3.8rem; */
     font-size: ${(props) => props.fontSize};
     color: ${(props) => props.basicColor};
@@ -8,6 +8,7 @@ const Button = styled.button`
     background-color:transparent;
     padding: 46px;
     position: relative;
+    z-index: 0.1;
     /* width: 160%; */
     &:hover {
         cursor: pointer;
@@ -18,4 +19,4 @@ const Button = styled.button`
         color: #C8B510;
     }
 `
-export default Button;
+export default YellowButton;

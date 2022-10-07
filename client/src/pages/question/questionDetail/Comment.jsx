@@ -1,22 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Comment = ({ comment }) => {
-    // console.log(comment);
-    const parsedDate = new Date(comment.createdAt).toLocaleDateString('ko-kr');
-
+const Comment = ({ content, created_at, id }) => {
+    // console.log(content);
     return (
-        <li id={comment.id}>
+        <li id={id}>
             <Container>
-                <span style={{fontSize:"12px", color:"#747474"}}>{new Intl.DateTimeFormat("ko", { dateStyle: 'medium', timeStyle: 'medium' }).format(new Date())}</span>
-                
-                {/* <button
-                className="tweet__deleteButton"
-                onClick={() => handleDelete(comment.username, idx)}
-                >     
-                Delete</button> */}
-                
-                {comment.questionBody}
+                <div>{content}</div>
+                <span style={{fontSize:"12px", color:"#747474"}}>{created_at}</span>
             </Container>
         </li>
     );
