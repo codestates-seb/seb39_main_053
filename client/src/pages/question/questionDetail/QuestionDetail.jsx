@@ -64,7 +64,7 @@ const QuestionDetail = () => {
             .then((res) => {
                 navigate("/questionList");
                 window.alert("질문이 삭제되었습니다!");
-                // window.toast.success("질문이 삭제되었습니다!");
+                
             })
         }
     }
@@ -130,7 +130,7 @@ const QuestionDetail = () => {
                     return <Comment content={answers.content} created_at={answers.created_at} key={answers.id} />
                 })}
             </Container>
-            {/* <ToastContainer /> */}
+            
         </div>
     );
 };
