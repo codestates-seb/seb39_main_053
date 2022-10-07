@@ -1,13 +1,11 @@
 package com.cogether.server.member.controller;
 
-import com.cogether.server.dto.MultiResponseDto;
 import com.cogether.server.dto.SingleResponseDto;
 import com.cogether.server.member.dto.MemberDto;
 import com.cogether.server.member.entity.Member;
 import com.cogether.server.member.mapper.MemberMapper;
 import com.cogether.server.member.service.MemberService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -15,7 +13,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import javax.validation.constraints.Positive;
-import java.util.List;
 
 @RestController
 @RequestMapping("/members")
